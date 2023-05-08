@@ -1,4 +1,4 @@
-# SphereQuery
+# ESOQuery
 
 ![example](screenshots/ESOQuery.png)
 
