@@ -1,12 +1,12 @@
 # SphereQuery
 
-![example](screenshots/SphereQuery.png)
+![example](screenshots/ESOQuery.png)
 
-Package to browse and explore the ESO VLT/SPHERE archive. This should be the equivalent of searching from the official [ESO SPHERE form](http://archive.eso.org/wdb/wdb/eso/sphere/form) but the results should be presented in a more comprehensible way.
+Package to browse and explore the ESO archive. This should be the equivalent of searching from the official raw [ESO archive](http://archive.eso.org/eso/eso_archive_main.html) but the results should be presented in a more comprehensible way.
 
-Indeed, instead of having endless pages with one fits file per line, this package groups several fits files together, provided they have the same "OB id" which is given by the observatory. Therefore, at a quick glance, you can see how many times your favorite star has been observed with SPHERE, in which observing mode, and with which filters.
+Indeed, instead of having endless pages with one fits file per line, this package groups several fits files together, depending on the program ID and when the observations were taken. Therefore, at a quick glance, you can see how many times your favorite star has been observed with different instruments.
 
-Note that at the moment, only **IRDIS** is supported, I will include IFS and ZIMPOL in the near future.
+There is the possibility to query for the raw data or the phase 3 data.
 
 ## Query parameters
 
