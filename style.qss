@@ -38,7 +38,7 @@ QRadioButton::indicator::unchecked
 QPushButton {
    color: white;
    border-width: 1px;
-   border-color: #339;
+   border-color: #666666;
    border-style: solid;
    border-radius: 3px;
    padding: 3px;
