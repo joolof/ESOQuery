@@ -10,11 +10,15 @@ There is the possibility to query for the raw data or the phase 3 data.
 
 ## Query parameters
 
-Starting a query is fairly simple, you can only query for a star name (query per program ID or observing night for instance is not supported). And you can query either for Phase 3 data, or for the raw data. If you're interested in the raw data, you can select which instruments you want to query.
+Starting a query is fairly simple, you can only query for a star name (for instance, queries per program ID or observing night are not supported). And you can query either for Phase 3 data, or for the raw data. If you're interested in the raw data, you can select which instruments you want to query.
 
 ### A note on the raw data query
 
-The phase 3 query is done using astroquery and it is quite fast. On the other hand, for the raw data, the program needs to find some keywords of the headers that are not always included in the general astroquery package. Therefore, this package uses the SQL query that is provided by ESO. In general, this method is slower than using astroquery, especially if you are asking for many instruments. 
+The phase 3 query is done using astroquery and it is quite fast. On the other hand, for the raw data, the program needs to find some keywords of the headers that are not always included in the general astroquery query. Therefore, for the raw data query, this package uses ADQL, which is provided by ESO. In general, this method is slower than using astroquery, especially if you are asking for many instruments. 
+
+### A note on login
+
+In the preferences, you can enter your ESO login and password, but this is not required and the archive can be queried anonymously. Of course if you try to download your own observations before the release date, then you will not be able to do so. As mention later on, the login and password are stored locally on your computer and will remain private.
 
 ## Displaying results
 
@@ -38,7 +42,7 @@ For the raw data query, the columns are:
 - Number of files
 - PI and CoIs
 
-On top of that, for both queries, on the right side there will be additional information about the selected row.
+On top of that, for both types queries, on the right side there will be additional information about the selected row.
 
 ## Preferences
 
@@ -46,13 +50,13 @@ Preferences can be accessed by clicking on the `File` button in the upper left c
 
 The package will create a directory in $HOME/.config/esoquery/, meaning that all preferences are stored locally and will stay on your computer. There is only one file saved there:
 
-- esoquery.conf: contains the login and password (saved locally, hence private), a directory where to save the data, and a list of your favorite instruments.
+- esoquery.conf: contains the login and password, a directory where to save the data, and a list of your favorite instruments.
 
-In the preferences window, you can select the instruments that you would like to query for the raw data query (it doesn't matter for the phase 3 query). As mentioned before, querying for all instruments at once might be very slow and may result in a time out of the query. The instrument that you selected will appear in a drop-down menu on the main interface once you select `Raw data`.
+In the preferences window, you can select the instruments that you would like to query for the raw data query (it doesn't matter for the phase 3 query). As mentioned before, querying for all instruments at once might be very slow and may result in a time out of the query. The instruments that you selected in the preferences window will appear in a drop-down menu on the main interface once you select `Raw data`.
 
 ## Data download
 
-After doing one query, you can select one of the row and press the `Download` button. There will be a pop-up window showing up where you can access the `Preferences` in case you need to change the download directory, and you can also select the kind of data you want. You can select from the following three options:
+After doing one query, you can select one of the row and press the `Download` button (upper right corner). There will be a pop-up window showing up where you can access the `Preferences` in case you need to change the download directory, and you can also select the kind of data you want. You can select from the following three options:
 
 - Science files only
 - Science and raw calibration files
@@ -66,7 +70,7 @@ For the Phase 3 data, this choice does not matter since there is no calibration 
 
 ## Requirements
 
-The requirements can be found below. The main interface is done using `PyQt5`. There are some scripts that come directly from the ESO webpages (`eso_programmatic.py`) which are using the `pyvo` package.
+The requirements can be found below. The main interface is done using `PyQt5`. There are some scripts that come directly from the ESO webpages (`eso_programmatic.py`, provided here as well) which are using the `pyvo` package.
 
 ```python
 astropy==5.0.4
