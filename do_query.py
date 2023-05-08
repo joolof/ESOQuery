@@ -23,8 +23,8 @@ class DoQuery(QObject):
         Query the ESO raw data archive
         """
         super(DoQuery, self).__init__(parent)
-        self._ignorekey = ['tpl_id', 'release_date', 'date_obs', 'datalink_url']
-        # self._ignorekey = ['access_url', 'tpl_id', 'release_date', 'date_obs', 'dp_id', 'datalink_url']
+        # self._ignorekey = ['tpl_id', 'release_date', 'date_obs', 'datalink_url']
+        self._ignorekey = ['access_url', 'tpl_id', 'release_date', 'date_obs', 'dp_id', 'datalink_url']
         self.starname = None
         self.instrument = None
         self.user = None
